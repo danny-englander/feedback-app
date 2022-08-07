@@ -1,21 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Card from './shared/Card'
 
-const FeedbackItem = () => {
-  const [rating, SetRating] = useState(0)
-  const [text, setText] = useState('This is an example of a feedback item')
-
-  const handleClick = () => {
-    SetRating((prev) => {
-      return prev + 1
-    })
-  }
-
+const FeedbackItem = ({ item }) => {
   return (
-    <div className="card">
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{text}</div>
-      <button onClick={handleClick}>Click</button>
-    </div>
+    // Call the styled component
+    <Card reverse={true}>
+      <div className="num-display">{item.rating}</div>
+      <div className="text-display">{item.text}</div>
+    </Card>
   )
 }
 
