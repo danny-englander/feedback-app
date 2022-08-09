@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Styled component.
 const Card = ({ children, reverse }) => {
@@ -9,12 +10,21 @@ const Card = ({ children, reverse }) => {
       className="card"
       style={{
         backgroundColor: reverse ? 'rgba(0,0,0,0.4)' : '#fff',
-        color: reverse ? '#fff' : 'rgba(0,0,0,0.4)'
+        color: reverse ? '#fff' : 'rgba(0,0,0,0.4)',
       }}
     >
       {children}
     </div>
   )
+}
+
+Card.defaultProps = {
+  reverse: false,
+}
+
+Card.prototypes = {
+  children: PropTypes.node.isRequired,
+  reverse: PropTypes.bool,
 }
 
 export default Card
